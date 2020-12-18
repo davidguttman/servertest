@@ -128,6 +128,8 @@ Don't use a `callback` function to receive the data. Instead, the `stream` is a 
 
 - <b><code>'encoding'</code></b>: the only option **servertest** currently cares about. If you provide `'utf8'` the `callback` will receive a `String` rather than a `Buffer`. If you provide `'json'` the data received from the server will be passed through `JSON.parse()` and any exceptions will be returned as the `Error` argument to the `callback`.
 
+- <b><code>'useHttps'</code></b>: `Boolean` provide **true** for using `https://localhost`
+
 **[hyperquest](https://github.com/substack/hyperquest)** uses the following options:
 
 - <b><code>'method'</code></b>: request method, defaults to `'GET'`

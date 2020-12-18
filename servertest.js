@@ -9,7 +9,7 @@ function servertest (server, uri, options, callback) {
     callback = options
     options  = {}
   }
-  
+
   if (uri[0] != '/')
     uri = '/' + uri;
 
@@ -32,7 +32,8 @@ function servertest (server, uri, options, callback) {
       return onReturn(err)
 
     var port = this.address().port
-      , url = 'http://localhost:' + port + uri
+      , protocol = options.useHttps? 'https': 'http'
+      , url = `${protocol}://localhost:` + port + uri
       , resp = {}
       , req
 
@@ -79,7 +80,7 @@ function servertest (server, uri, options, callback) {
   }).on('error', function (err) {
     return onReturn(e)
   })
-  
+
   function onReturn (err) {
     if (!callback || typeof callback != 'function')
       throw err
